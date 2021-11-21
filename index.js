@@ -15,6 +15,11 @@ class CommonPage {
     async getAttribute(locator, attribute) {
         return await page.getAttribute(locator, attribute);
     }
+
+    async getText(locator) {
+        const element = await page.waitForSelector(locator);
+        return await element.innerText();
+    }
 }
 
 module.exports = new CommonPage();
